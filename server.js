@@ -15,6 +15,8 @@ var totalMarginsHeight = marginRight + marginRight;
 var widthDocument = width + totalMarginsWidth;
 var heightDocument = height + totalMarginsHeight;
 
+var directoryName = "One Piece";
+
 doc = new PDFDocument({
     size: [width, height],
     margins: { // by default, all are 72
@@ -36,7 +38,7 @@ doc = new PDFDocument({
 
 var currentPath = __dirname;
 console.log("currentPath : " + currentPath);
-var workDirectory = currentPath + "\\inputs\\Hunter X Hunter\\";
+var workDirectory = currentPath + "\\inputs\\" + directoryName +"\\";
 
 console.log("workDirectory : " + workDirectory);
 
@@ -70,7 +72,7 @@ absolutListdirectories.forEach(function (directoryName) {
 
 });
 
-doc.pipe(fs.createWriteStream('output/output.pdf'));
+doc.pipe(fs.createWriteStream('output/' + directoryName + '.pdf'));
 // PDF Creation logic goes here
 doc.end();
 
